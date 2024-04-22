@@ -10,15 +10,40 @@ void ui_Screen2_screen_init(void)
 ui_Screen2 = lv_obj_create(NULL);
 lv_obj_clear_flag( ui_Screen2, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 
-ui_Slider1 = lv_slider_create(ui_Screen2);
-lv_slider_set_value( ui_Slider1, 0, LV_ANIM_OFF);
-if (lv_slider_get_mode(ui_Slider1)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_Slider1, 0, LV_ANIM_OFF);
-lv_obj_set_width( ui_Slider1, 150);
-lv_obj_set_height( ui_Slider1, 10);
-lv_obj_set_x( ui_Slider1, -61 );
-lv_obj_set_y( ui_Slider1, -15 );
-lv_obj_set_align( ui_Slider1, LV_ALIGN_CENTER );
+ui_Checkbox1 = lv_checkbox_create(ui_Screen2);
+lv_checkbox_set_text(ui_Checkbox1,"Music Mode");
+lv_obj_set_width( ui_Checkbox1, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_Checkbox1, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_Checkbox1, 84 );
+lv_obj_set_y( ui_Checkbox1, 55 );
+lv_obj_set_align( ui_Checkbox1, LV_ALIGN_CENTER );
+lv_obj_add_flag( ui_Checkbox1, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
+
+ui_Label7 = lv_label_create(ui_Screen2);
+lv_obj_set_width( ui_Label7, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_Label7, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_Label7, -76 );
+lv_obj_set_y( ui_Label7, -90 );
+lv_obj_set_align( ui_Label7, LV_ALIGN_CENTER );
+lv_label_set_text(ui_Label7,"Running Goal");
+
+ui_Arc3 = lv_arc_create(ui_Screen2);
+lv_obj_set_width( ui_Arc3, 132);
+lv_obj_set_height( ui_Arc3, 122);
+lv_obj_set_x( ui_Arc3, -71 );
+lv_obj_set_y( ui_Arc3, -2 );
+lv_obj_set_align( ui_Arc3, LV_ALIGN_CENTER );
+lv_arc_set_value(ui_Arc3, 50);
 
 
+ui_Label8 = lv_label_create(ui_Screen2);
+lv_obj_set_width( ui_Label8, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_Label8, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_Label8, -77 );
+lv_obj_set_y( ui_Label8, -2 );
+lv_obj_set_align( ui_Label8, LV_ALIGN_CENTER );
+lv_label_set_text(ui_Label8,"Intensity50");
+
+lv_obj_add_event_cb(ui_Arc3, ui_event_Arc3, LV_EVENT_ALL, NULL);
 
 }

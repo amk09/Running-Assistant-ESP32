@@ -15,17 +15,33 @@ extern "C" {
 #include "ui_helpers.h"
 #include "ui_events.h"
 
+// SCREEN: ui_Screen3
+void ui_Screen3_screen_init(void);
+extern lv_obj_t *ui_Screen3;
+void ui_event_Button2( lv_event_t * e);
+extern lv_obj_t *ui_Button2;
+extern lv_obj_t *ui_Label5;
+extern lv_obj_t *ui_Calendar2;
+extern lv_obj_t *ui_Label6;
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
 extern lv_obj_t *ui_Screen1;
-extern lv_obj_t *ui_Arc1;
 void ui_event_Button1( lv_event_t * e);
 extern lv_obj_t *ui_Button1;
 extern lv_obj_t *ui_Label3;
+extern lv_obj_t *ui_Label4;
+extern lv_obj_t *ui_Panel2;
+void ui_event_Button3( lv_event_t * e);
+extern lv_obj_t *ui_Button3;
+extern lv_obj_t *ui_Label1;
 // SCREEN: ui_Screen2
 void ui_Screen2_screen_init(void);
 extern lv_obj_t *ui_Screen2;
-extern lv_obj_t *ui_Slider1;
+extern lv_obj_t *ui_Checkbox1;
+extern lv_obj_t *ui_Label7;
+void ui_event_Arc3( lv_event_t * e);
+extern lv_obj_t *ui_Arc3;
+extern lv_obj_t *ui_Label8;
 extern lv_obj_t *ui____initial_actions0;
 
 

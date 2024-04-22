@@ -13,11 +13,13 @@
 
 /*Using LVGL with Arduino requires some extra steps:
  *Be sure to read the docs here: https://docs.lvgl.io/master/get-started/platforms/arduino.html  */
-
+#include <SD.h>
+#include<FS.h>
 #include <lvgl.h>
 #include <TFT_eSPI.h>
 #include "ui.h"
 #include <XPT2046_Touchscreen.h>
+#include "Audio.h"
 // A library for interfacing with the touch screen
 //
 // Can be installed from the library manager (Search for "XPT2046")
@@ -37,7 +39,7 @@
 
 // SPIClass mySpi = SPIClass(HSPI); // touch does not work with this setting
 SPIClass mySpi = SPIClass(VSPI); // critical to get touch working
-
+Audio audio(true, I2S_DAC_CHANNEL_LEFT_EN); //Audio feedback that could be working. 
 XPT2046_Touchscreen ts(XPT2046_CS, XPT2046_IRQ);
 
 /*Change to your screen resolution*/
@@ -46,9 +48,14 @@ static const uint16_t screenHeight = 240;
 
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[screenWidth * screenHeight / 10];
+File file;
+
+
 
 TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
-
+//wifi 
+const char* ssid = "BU Guest (unencrypted)";
+const char* password = "";
 #if LV_USE_LOG != 0
 /* Serial debugging */
 void my_print(const char *buf)
@@ -153,6 +160,14 @@ void setup()
     // lv_label_set_text( label, "Hello Ardino and LVGL!");
     // lv_obj_align( label, LV_ALIGN_CENTER, 0, 0 );
 
+    // SPI.begin();
+    // SPIFFS.begin();
+    // file = SPIFFS.open("../Audio Source/speed_up.mp3", "r");
+    // if (!file) {
+    //  Serial.println("Failed to open file for reading");
+    //     return;
+    // }
+    // audio.connecttoFS(SD,"../Audio Source/speed_up.mp3");
     ui_init();
 
     Serial.println("Setup done");
@@ -161,5 +176,6 @@ void setup()
 void loop()
 {
     lv_timer_handler(); /* let the GUI do its work */
+    audio.loop();
     delay(5);
 }
