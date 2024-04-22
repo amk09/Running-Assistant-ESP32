@@ -162,11 +162,7 @@ void setup()
 
     // SPI.begin();
     // SPIFFS.begin();
-    // file = SPIFFS.open("../Audio Source/speed_up.mp3", "r");
-    // if (!file) {
-    //  Serial.println("Failed to open file for reading");
-    //     return;
-    // }
+    
     // audio.connecttoFS(SD,"../Audio Source/speed_up.mp3");
     ui_init();
 
@@ -176,6 +172,6 @@ void setup()
 void loop()
 {
     lv_timer_handler(); /* let the GUI do its work */
-    audio.loop();
+    // audio.loop();
     delay(5);
 }
