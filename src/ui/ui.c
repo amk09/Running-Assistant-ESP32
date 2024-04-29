@@ -27,6 +27,7 @@ lv_obj_t *ui_Button1;
 lv_obj_t *ui_Label3;
 lv_obj_t *ui_Label4;
 lv_obj_t *ui_Panel2;
+lv_obj_t *ui_Chart1;
 void ui_event_Button3( lv_event_t * e);
 lv_obj_t *ui_Button3;
 lv_obj_t *ui_Label1;
@@ -40,6 +41,9 @@ lv_obj_t *ui_Label7;
 void ui_event_Arc3( lv_event_t * e);
 lv_obj_t *ui_Arc3;
 lv_obj_t *ui_Label8;
+void ui_event_Button4( lv_event_t * e);
+lv_obj_t *ui_Button4;
+lv_obj_t *ui_Label2;
 lv_obj_t *ui____initial_actions0;
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
@@ -68,13 +72,19 @@ if ( event_code == LV_EVENT_CLICKED) {
 void ui_event_Button3( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 if ( event_code == LV_EVENT_CLICKED) {
-      StartT( e );
+      StartBpm( e );
 }
 }
 void ui_event_Arc3( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 if ( event_code == LV_EVENT_VALUE_CHANGED) {
       _ui_arc_set_text_value( ui_Label8, target, "Intensity", "");
+}
+}
+void ui_event_Button4( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+if ( event_code == LV_EVENT_CLICKED) {
+      _ui_screen_change( &ui_Screen1, LV_SCR_LOAD_ANIM_MOVE_LEFT, 500, 0, &ui_Screen1_screen_init);
 }
 }
 

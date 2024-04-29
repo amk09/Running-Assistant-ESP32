@@ -31,6 +31,10 @@
 // The CYD touch uses some non default
 // SPI pins
 
+const char* ssid     = "BU Guest (unencrypted)"; // Change this to your WiFi SSID
+const char* password = ""; // Change this to your WiFi password
+
+
 #define XPT2046_IRQ 36
 #define XPT2046_MOSI 32
 #define XPT2046_MISO 39
@@ -54,8 +58,7 @@ File file;
 
 TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
 //wifi 
-const char* ssid = "BU Guest (unencrypted)";
-const char* password = "";
+
 #if LV_USE_LOG != 0
 /* Serial debugging */
 void my_print(const char *buf)
@@ -164,6 +167,23 @@ void setup()
     // SPIFFS.begin();
     
     // audio.connecttoFS(SD,"../Audio Source/speed_up.mp3");
+
+//     bool succeeded;
+    
+//   WiFi.begin(ssid, password);
+
+
+
+//   audio.forceMono(true);
+//     audio.setVolume(2);
+//     // Connect to 'FM - Disco Ball 70's-80's Los Angeles'
+
+//         succeeded = audio.connecttohost("https://github.com/amk09/Running-Assistant-ESP32/blob/main/Audio%20Source/speed_up.mp3");     
+//     delay(500);
+//     Serial.println("Retrying");
+    
+ 
+
     ui_init();
 
     Serial.println("Setup done");
@@ -172,6 +192,6 @@ void setup()
 void loop()
 {
     lv_timer_handler(); /* let the GUI do its work */
-    // audio.loop();
+     audio.loop();
     delay(5);
 }

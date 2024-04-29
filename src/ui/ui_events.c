@@ -5,7 +5,8 @@
 
 #include "ui.h"
 
-void StartT(lv_event_t * e)
+void StartBpm(lv_event_t * e)
 {
+    
 	// Your code here
 }

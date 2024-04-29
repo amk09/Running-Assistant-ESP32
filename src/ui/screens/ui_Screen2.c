@@ -44,6 +44,22 @@ lv_obj_set_y( ui_Label8, -2 );
 lv_obj_set_align( ui_Label8, LV_ALIGN_CENTER );
 lv_label_set_text(ui_Label8,"Intensity50");
 
+ui_Button4 = lv_btn_create(ui_Screen2);
+lv_obj_set_width( ui_Button4, 100);
+lv_obj_set_height( ui_Button4, 50);
+lv_obj_set_x( ui_Button4, 83 );
+lv_obj_set_y( ui_Button4, -16 );
+lv_obj_set_align( ui_Button4, LV_ALIGN_CENTER );
+lv_obj_add_flag( ui_Button4, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
+lv_obj_clear_flag( ui_Button4, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+
+ui_Label2 = lv_label_create(ui_Button4);
+lv_obj_set_width( ui_Label2, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_Label2, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_align( ui_Label2, LV_ALIGN_CENTER );
+lv_label_set_text(ui_Label2,"Done!");
+
 lv_obj_add_event_cb(ui_Arc3, ui_event_Arc3, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_Button4, ui_event_Button4, LV_EVENT_ALL, NULL);
 
 }

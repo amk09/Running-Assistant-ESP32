@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-void StartT(lv_event_t * e);
+void StartBpm(lv_event_t * e);
 
 #ifdef __cplusplus
 } /*extern "C"*/
